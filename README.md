@@ -3,6 +3,7 @@
 ## Unit 1: Fuzzy Balll Bouncing Animation
 
 ### Fuzzy Ball Animation 
+![Figure 1-1](assets/screenshots/screenshot.png "Figure 1-1")
 * 1 quả bóng ở giữa khung hình rơi từ trên xuống dưới và nảy lại vài lần cho đến khi dừng hẳn lại
 * Các files html part0 đến part5 hướng dẫn lần lượt các bước tạo nên animation
 1. part0.html: template rỗng 
