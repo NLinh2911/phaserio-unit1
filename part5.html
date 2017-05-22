@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Phaser.io Example 1 - Thêm nhạc nền </title>
+        <script src="./phaser/phaser.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var game = new Phaser.Game(800, 600, Phaser.AUTO, '',{ preload: preload, create: create, update: update });
+
+            function preload () {
+                game.load.image('sky', 'assets/images/night-sky.png');
+                game.load.image('ball', 'assets/images/Ten 1.png', 50, 50);
+                game.load.audio('bgmusic', 'assets/sounds/illusion-castle.mp3');
+            }
+            var ball;
+            var bgmusic;
+            function create () {
+                // Thêm nhạc nền cho animation
+                bgmusic = game.add.sound('bgmusic');
+                bgmusic.volume = 0.1;
+                bgmusic.loop = true;
+                bgmusic.play();
+                
+                game.physics.startSystem(Phaser.Physics.ARCADE);
+                game.add.sprite(0, 0, 'sky');
+                
+                ball = game.add.sprite(game.world.width/2, 0, 'ball');
+                ball.anchor.set(0.5, 0);
+                
+                game.physics.arcade.enable(ball);
+                ball.body.gravity.y = 300;    
+                ball.body.collideWorldBounds = true;
+                ball.body.bounce.y = 0.7;
+
+            }
+            function update () {
+
+            }
+            function render () {
+
+            }
+
+        </script>
+    </body>
+</html>

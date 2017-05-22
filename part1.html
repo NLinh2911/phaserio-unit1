@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Phaser.io Example 1 - Tải và Tạo Ảnh</title>
+        <script src="./phaser/phaser.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            // Dựng 1 khung Game trống
+            // Chiều ngang 800px - Chiều dài 600px
+            // Phaser.AUTO tự động lựa chọn công nghệ dựng hình phù hợp với browser
+            // '' là 1 string - chuỗi ứng với tên HTML tag, nếu để rỗng sẽ tự tạo trong <body>
+            // gán các functions ở dưới để thực hiện từng bước để chạy game
+            var game = new Phaser.Game(800, 600, Phaser.AUTO, '',{ preload: preload, create: create, update: update });
+
+            function preload () {
+                // 
+                game.load.image('sky', 'assets/images/night-sky.png');
+                game.load.image('ball', 'assets/images/Ten 1.png');
+            }
+            var ball;
+            function create () {
+                //  Tạo/ Thêm ảnh nền tên 'sky' tại góc trái của khung hình tọa độ x = 0, y = 0 
+                game.add.sprite(0, 0, 'sky');
+
+                // Thêm 'ball' vào vị trí x = chiều dài khung game/2, y = 0
+                // Mỗi hình đều lấy điểm mốc là góc trái của hình
+                // Hình 'ball' có kích thước là 100x100 nên nếu tọa độ x = 400, hình sẽ bị lệch bên phải chứ không ở trung tâm
+                ball = game.add.sprite(game.world.width/2, 0, 'ball');
+                
+                // Cần đổi điểm mốc của tọa độ x thành trung tâm của hình
+                ball.anchor.set(0.5, 0);
+
+
+            }
+            function update () {
+
+            }
+            function render () {
+
+            }
+
+        </script>
+    </body>
+</html>

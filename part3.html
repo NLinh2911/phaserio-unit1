@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Phaser.io Example 1 - falling Ball</title>
+        <script src="./phaser/phaser.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var game = new Phaser.Game(800, 600, Phaser.AUTO, '',{ preload: preload, create: create, update: update });
+
+            function preload () {
+                // load 3 image assets - the first parameter is the image key - name
+                game.load.image('sky', 'assets/images/night-sky.png');
+                game.load.image('ball', 'assets/images/Ten 1.png');
+            }
+            var ball;
+            function create () {
+                game.physics.startSystem(Phaser.Physics.ARCADE);
+
+                game.add.sprite(0, 0, 'sky');
+
+                ball = game.add.sprite(game.world.width/2, 0, 'ball');
+                ball.anchor.set(0.5, 0);
+
+                game.physics.arcade.enable(ball);
+                ball.body.gravity.y = 300;
+
+                // Khi va chạm với viền của khung game - ball sẽ dừng lại hoàn toàn - chưa có hiệu ứng nảy lên
+                ball.body.collideWorldBounds = true;
+
+
+            }
+            function update () {
+
+            }
+            function render () {
+
+            }
+
+        </script>
+    </body>
+</html>
