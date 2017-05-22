@@ -19,13 +19,13 @@
 // '' là 1 string - chuỗi ứng với tên HTML tag, nếu để rỗng sẽ tự tạo trong <body>
 // gán các functions ở dưới để thực hiện từng bước để chạy game
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
+// Hàm này được gọi trước khi game chạy - tải sẵn những assets hay hình ảnh, âm thanh cần sử dụng trong game
 function preload() {
 }
-
+// Hàm này chạy sau khi preload() hoàn thành - bắt đầu khởi tao ảnh nền, nhân vật, nhạc nền 
 function create() {
 }
-
+// Hàm được gọi liên tục nhiều lần trên giây trong game - cập nhật các thay đổi trong game như vị trí, trạng thái,...
 function update() {
 }
 
